@@ -29,53 +29,19 @@ function fetchData() {
                         return response.json();
                     })
                     .then(data => {
-                        console.log(data.profile.companyName);
-                        console.log(data.symbol);
-                        console.log(data.profile.website)
-                        // data.map(info => {
-                        //     return  `
-                        //         <div  id="companyLink" class="companyProfile">
-                        //             <a  class="companyLink">
-                        //                 <img src="" alt="">
-                        //                 <span class="listItem">
-                        //                     ${info.profile.companyName} (${info.symbol})
-                        //                 </span> 
-                        //             </a>
-                        //         </div> 
-                        //         `
-                        //     }).join(" ");
-                        
                         const companyRow = `
                                 <div  id="companyLink" >
                                     <a href="${data.profile.website}" class="companyProfile" target="_blank">
-                                        <img src="${data.profile.image}" onerror="this.onerror=null; this.src='./static/img/default.jfif'" alt="" height="50px" weight="50px">
+                                        <img src="${data.profile.image}" onerror="this.onerror=null; this.src='./static/img/default.jfif'" alt="" height="50px" width="50px">
                                         <span class="listItem">
-                                            ${data.profile.companyName} (${data.symbol})
-                                        </span> 
-                                    </a>
+                                            ${data.profile.companyName}</span></a>
+                                            <a href="./company.html?query=${data.symbol}">(${data.symbol})</a>                                   
                                 </div> 
                                 `
-                                console.log(companyRow);
+                                // console.log(companyRow);
                                 setTimeout(function(){document.querySelector('#appearListOnClick').insertAdjacentHTML("afterbegin", companyRow);}, 1000);
                         })
-                        
-
-                    // const companyData = data.map(companyInfo => {
-                    //     return `
-                    //     <div  id="companyLink" class="companyProfile">
-                    //         <a  class="companyLink">
-                    //             <img src="" alt="">
-                    //             <span class="listItem">
-                    //                 ${companyInfo.name} (${companyInfo.symbol})
-                    //             </span> 
-                    //         </a>
-                    //     </div> 
-                    //     `
-                    // }).join(" ");
-                    // console.log(companyData);
-                })
-                
-                // setTimeout(function(){document.querySelector('#appearListOnClick').insertAdjacentHTML("afterbegin", companyData);}, 3000);
+                })              
             })
         })
     )}
