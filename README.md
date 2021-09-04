@@ -2,7 +2,7 @@
  
  
  
- <h1Javascript Project 1 - Stock Exchange></h1>
+ <h1>Javascript Project 1 - Stock Exchange></h1>
 ______________________________________________________________________________________
 
 Summary
