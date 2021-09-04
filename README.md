@@ -27,14 +27,15 @@ In your code, the domain should be replaced  to the custom server domain, and lo
 <h1>Milestone 1</h1>
 
 Features
-Create a website that has a simple search input, with a search button
-When the button is clicked, the website should load and present 10 search results from the company search in the Free Stock API, when searching in Nasdaq
-The endpoint looks like this: https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=AA&limit=10&exchange=NASDAQ, where query=AA is where you put the input from the user
-Present the result as a list to the user
-Add loading indicator when making the search
-Each item in the list should show the company name and symbol (AAPL for Apple)
-Each item should link to /company.html?symbol=AAPL, where AAPL should be replaced with the company symbol you received from the API request.
-Show loading indicator when searching.<br>
-![image](https://user-images.githubusercontent.com/49821742/132095648-81362d42-a139-479d-a38e-4c2316ae2bab.png)
+<ul>
+ <li>Create a website that has a simple search input, with a search button</li>
+<li>When the button is clicked, the website should load and present 10 search results from the company search in the Free Stock API, when searching in Nasdaq</li>
+<li>The endpoint looks like this: https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=AA&limit=10&exchange=NASDAQ, where query=AA is where you put the input from the user</li>
+ <li>Present the result as a list to the user</li>
+ <li>Add loading indicator when making the search</li>
+ <li>Each item in the list should show the company name and symbol (AAPL for Apple)</li>
+<li>Each item should link to /company.html?symbol=AAPL, where AAPL should be replaced with the company symbol you received from the API request.</li>
+ <li>Show loading indicator when searching.</li><br>
+<img src="https://user-images.githubusercontent.com/49821742/132095648-81362d42-a139-479d-a38e-4c2316ae2bab.png" height="400px" weight="350px" style="margin-left: 200px;">
 
 
