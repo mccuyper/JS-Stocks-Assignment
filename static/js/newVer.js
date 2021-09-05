@@ -36,8 +36,7 @@ function fetchData() {
                                         <span class="listItem">
                                             ${data.profile.companyName}</span></a>
                                             <a href="./company.html?query=${data.symbol}">(${data.symbol})</a>                                   
-                                </div> 
-                                `
+                                </div>`
                                 // console.log(companyRow);
                                 setTimeout(function(){document.querySelector('#appearListOnClick').insertAdjacentHTML("afterbegin", companyRow);}, 1000);
                         })

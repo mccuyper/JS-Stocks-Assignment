@@ -1,0 +1,19 @@
+.imageName {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.imageName p {
+    font-size: 40px;
+}
+.symbol {
+    text-align: center;
+    font-size: 24px;
+    color: red;
+    font-weight: 800;
+}
+
+.website {
+    text-decoration: none;
+}
