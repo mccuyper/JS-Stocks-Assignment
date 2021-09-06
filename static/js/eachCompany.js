@@ -9,8 +9,8 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
             const info =
             `<div class="companyInfo"> 
                 <div class="imageName mb-3">
-                    <img src="${data.profile.image}" alt="image ${data.profile.companyName}">
-                    <p>${data.profile.companyName}<span class="companyValue"> $${data.profile.price} (${data.profile.changesPercentage})</span></p>
+                    <img src="${data.profile.image}" class="rounded shadow" onerror="this.onerror=null; this.src='./static/img/default.jfif'" height="100px" width="100px" alt="image ${data.profile.companyName}">
+                    <p>${data.profile.companyName}<span class="companyValue"> $${data.profile.price}</span> <span id='colorChange'>(${data.profile.changesPercentage})</span></p>
                 </div>
                 <p class='symbol'>${data.symbol}</p>
                 <div class="description">
@@ -19,12 +19,13 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
                 </div>
              </div>`
             console.log(info);
+           
             document.querySelector('#main').insertAdjacentHTML("afterbegin", info);
-        })
-
-// window.onload = function(){ colorChanger(); }
-// function colorChanger() {
-//     r = document.getElementsByClassName('changesPercentage')
-//     console.log(r)
-// } 
-// colorChanger()
+            const chPerc = `${data.profile.changesPercentage}`
+            if (chPerc > 0) {
+                document.getElementById('colorChange').style.color = "blue";
+            } else {
+                document.getElementById('colorChange').style.color = "red";
+            }
+        });
+     
