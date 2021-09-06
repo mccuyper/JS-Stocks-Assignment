@@ -43,21 +43,24 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
 
         fetch(historyUrl)
         .then(r => r.json()).then(historyData => {
-            const labels = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-              ];
+            const hLabels = []
+            const hClose = []
+            for (let i=0; i<10; i++ ){
+                const label = `${historyData.historical[i].date}`
+                hLabels.push(label)
+                // console.log(hLabels)
+                const dataSet = `${historyData.historical[i].close}`
+                hClose.push(dataSet)
+                // console.log(hClose)
+            }
+            const labels = hLabels;
             const data = {
                 labels: labels,
                 datasets: [{
-                  label: 'My First dataset',
+                  label: 'Stock Price',
                   backgroundColor: 'rgb(255, 99, 132)',
                   borderColor: 'rgb(255, 99, 132)',
-                  data: [0, 10, 5, 2, 20, 30, 45],
+                  data: hClose,
                 }]
               };
              
