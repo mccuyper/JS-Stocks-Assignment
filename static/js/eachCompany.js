@@ -10,7 +10,7 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
             `<div class="companyInfo"> 
                 <div class="imageName mb-3">
                     <img src="${data.profile.image}" class="rounded shadow" onerror="this.onerror=null; this.src='./static/img/default.jfif'" height="100px" width="100px" alt="image ${data.profile.companyName}">
-                    <p>${data.profile.companyName}<span class="companyValue"> $${data.profile.price}</span> <span id='colorChange'>(${data.profile.changesPercentage})</span></p>
+                    <p>${data.profile.companyName}<span class="companyValue"> $${data.profile.price} (<span id='colorChange'>${data.profile.changesPercentage}</span>)</span></p>
                 </div>
                 <p class='symbol'>${data.symbol}</p>
                 <div class="description">
@@ -21,9 +21,15 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
             console.log(info);
            
             document.querySelector('#main').insertAdjacentHTML("afterbegin", info);
+            
             const chPerc = `${data.profile.changesPercentage}`
+            document.getElementById('colorChange').innerHTML = chPerc.slice(0,5)
+           
+            // color Changer condition
             if (chPerc > 0) {
                 document.getElementById('colorChange').style.color = "blue";
+                
+                document.querySelector('#colorChange').insertAdjacentHTML("afterbegin", '+');
             } else {
                 document.getElementById('colorChange').style.color = "red";
             }
