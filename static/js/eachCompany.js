@@ -3,8 +3,13 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
         const url = urlParams.get('query')
         console.log(url)
         const companyUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${url}`;
+        const historyUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/${url}?serietype=line
+        `
         console.log(companyUrl);
-        fetch(companyUrl).then(response => response.json()).then(data =>  {
+        console.log(historyUrl);
+        fetch(companyUrl)
+        .then(response => response.json())
+        .then(data =>  {
             console.log(data);
             const info =
             `<div class="companyInfo"> 
@@ -27,7 +32,7 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
            
             // color Changer condition
             if (chPerc > 0) {
-                document.getElementById('colorChange').style.color = "blue";
+                document.getElementById('colorChange').style.color = "green";
                 
                 document.querySelector('#colorChange').insertAdjacentHTML("afterbegin", '+');
             } else {
@@ -35,3 +40,37 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
             }
         });
      
+
+        fetch(historyUrl)
+        .then(r => r.json()).then(historyData => {
+            const labels = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+              ];
+            const data = {
+                labels: labels,
+                datasets: [{
+                  label: 'My First dataset',
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: [0, 10, 5, 2, 20, 30, 45],
+                }]
+              };
+             
+            const config = {
+                type: 'line',
+                data: data,
+                options: {}
+              };
+              
+              
+              var myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+              );
+            console.log(historyData)
+        })
