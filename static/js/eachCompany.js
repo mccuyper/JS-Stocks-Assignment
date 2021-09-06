@@ -8,9 +8,9 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
             console.log(data);
             const info =
             `<div class="companyInfo"> 
-                <div class="imageName mb-3">
+                <div class="d-flex justify-content-center align-items-center mb-3">
                     <img src="${data.profile.image}" class="rounded shadow" onerror="this.onerror=null; this.src='./static/img/default.jfif'" height="100px" width="100px" alt="image ${data.profile.companyName}">
-                    <p>${data.profile.companyName}<span class="companyValue"> $${data.profile.price} (<span id='colorChange'>${data.profile.changesPercentage}</span>)</span></p>
+                    <p class="fs-1 fw-bold px-5">${data.profile.companyName}<span class="companyValue"> $${data.profile.price} (<span id='colorChange'>${data.profile.changesPercentage}</span>)</span></p>
                 </div>
                 <p class='symbol'>${data.symbol}</p>
                 <div class="description">
