@@ -4,24 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
     <link rel="stylesheet" href="./static/css/buton.css">
+    <link rel="stylesheet" href="./static/css/style.css">
     <title>Main Page</title>
 </head>
 <body>
+    <div class="horizontalScroll">
+      <div class="horizontalScroll__content">
+            <ul id="stockList" class="list-inline">
+                
+            </ul>
+        </div>
+    </div>
+  
     <div class="wrap">
+        <h1> Search NASDAQ Stocks</h1>
         <div class="search">
            <input id="inputStock"  class="search-bar" placeholder="Enter the stock name here">
-           <button id="searchButton" type="submit" class="searchButton" data-label="search">
-          </button>
+           <button id="searchButton" type="submit" class="searchButton" data-label="search"></button>
         </div>
-        <div id='appearListOnClick'  class="full-list">
-        </div>
-     </div>
+        <div id='appearListOnClick'  class="full-list"></div>
+    </div>
     
 
     <script src="./static/js/buttonLoading.js"></script>
     <script src="./static/js/newVer.js"></script>
+    <script src="./static/js/horScroll.js"></script>
 </body>
 </html>
