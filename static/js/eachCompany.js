@@ -17,7 +17,7 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
                     <img src="${data.profile.image}" class="rounded shadow" onerror="this.onerror=null; this.src='./static/img/default.jfif'" height="100px" width="100px" alt="image ${data.profile.companyName}">
                     <p class="fs-1 fw-bold px-5">${data.profile.companyName}<span class="companyValue"> $${data.profile.price} (<span id='colorChange'>${data.profile.changesPercentage}</span>)</span></p>
                 </div>
-                <p class='symbol'>${data.symbol}</p>
+                <p class='fs-1 fw-bold text-center'>${data.symbol}</p>
                 <div class="description">
                     <p class="description-par">${data.profile.description}</p>
                     <p class="symbol"><a href="${data.profile.website}" class="symbol website">${data.profile.website}</a></p>
@@ -40,11 +40,14 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
             }
         });
      
-
+        setTimeout(function(){
+            document.getElementById('loadSpinner').style.display='none';
+        }, 4000)
         fetch(historyUrl)
         .then(r => r.json()).then(historyData => {
             const hLabels = []
             const hClose = []
+            setTimeout(function(){
             for (let i=0; i<10; i++ ){
                 const label = `${historyData.historical[i].date}`
                 hLabels.push(label)
@@ -53,27 +56,26 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
                 hClose.push(dataSet)
                 // console.log(hClose)
             }
-            const labels = hLabels;
+            const labels = hLabels.reverse();
             const data = {
                 labels: labels,
                 datasets: [{
                   label: 'Stock Price',
                   backgroundColor: 'rgb(255, 99, 132)',
                   borderColor: 'rgb(255, 99, 132)',
-                  data: hClose,
+                  data: hClose.reverse(),
                 }]
               };
-             
+              
             const config = {
                 type: 'line',
                 data: data,
                 options: {}
               };
-              
-              
               var myChart = new Chart(
                 document.getElementById('myChart'),
                 config
               );
-            console.log(historyData)
+            }, 4000)
+            // console.log(historyData)
         })
