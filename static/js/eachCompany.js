@@ -15,7 +15,7 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
             `<div class="companyInfo"> 
                 <div class="d-flex justify-content-center align-items-center mb-3">
                     <img src="${data.profile.image}" class="rounded shadow" onerror="this.onerror=null; this.src='./static/img/default.jfif'" height="100px" width="100px" alt="image ${data.profile.companyName}">
-                    <p class="fs-1 fw-bold px-5">${data.profile.companyName}<span class="companyValue"> $${data.profile.price} (<span id='colorChange'>${data.profile.changesPercentage}</span>)</span></p>
+                    <p class="fs-1 fw-bold px-5">${data.profile.companyName}<span class="companyValue"> $${data.profile.price} <span id='colorChange'>${data.profile.changesPercentage}</span></span></p>
                 </div>
                 <p class='fs-1 fw-bold text-center'>${data.symbol}</p>
                 <div class="description">
@@ -24,6 +24,7 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
                 </div>
              </div>`
             console.log(info);
+            document.title = `${data.symbol} ${data.profile.companyName}`
             setTimeout(function() {
             document.querySelector('#main').insertAdjacentHTML("afterbegin", info);
             
@@ -35,9 +36,12 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
             if (chPerc > 0) {
                 document.getElementById('colorChange').style.color = "green";
                 
-                document.querySelector('#colorChange').insertAdjacentHTML("afterbegin", '+');
+                document.querySelector('#colorChange').insertAdjacentHTML("afterbegin", '(+');
+                document.querySelector('#colorChange').insertAdjacentHTML("beforeend", '%)');
             } else {
                 document.getElementById('colorChange').style.color = "red";
+                document.querySelector('#colorChange').insertAdjacentHTML("afterbegin", '(');
+                document.querySelector('#colorChange').insertAdjacentHTML("beforeend", '%)');
             }
         }, 4000)
         });
