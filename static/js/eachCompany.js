@@ -24,10 +24,11 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
                 </div>
              </div>`
             console.log(info);
-           
+            setTimeout(function() {
             document.querySelector('#main').insertAdjacentHTML("afterbegin", info);
             
             const chPerc = `${data.profile.changesPercentage}`
+            
             document.getElementById('colorChange').innerHTML = chPerc.slice(0,5)
            
             // color Changer condition
@@ -38,6 +39,7 @@ console.log(window.location.search); // OUTPUT  ?query=${SYMBOL}
             } else {
                 document.getElementById('colorChange').style.color = "red";
             }
+        }, 4000)
         });
      
         setTimeout(function(){
