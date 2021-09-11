@@ -30,8 +30,8 @@ function fetchData() {
                     })
                     .then(data => {
                         const companyRow = `
-                                <div  id="companyLink" class="d-flex align-items-center justify-content-between p-1" >
-                                    <a href="${data.profile.website}" class="companyProfile" target="_blank">
+                                <div  id="companyLink" class="d-flex align-items-center justify-content-between p-1" data-aos="zoom-in-up">
+                                    <a href="${data.profile.website}" class="companyProfile" target="_blank" >
                                         <img src="${data.profile.image}" onerror="this.onerror=null; this.src='./static/img/default.jfif'" alt="" height="50" width="50">
                                         <span class="listItem">
                                             ${data.profile.companyName}</span></a>

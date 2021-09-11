@@ -5,17 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg" href="./static/img/logo.svg"/>
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bootstrap.min.css">
     <link rel="stylesheet" href="./static/css/buton.css">
     <link rel="stylesheet" href="./static/css/style.css">
-    <title>Main Page</title>
+    <title>Stock NASDAQ Page</title>
 </head>
 <body>
+      
+    <div class="video">
+        <video autoplay muted loop>
+            <source src="./static/media/stock market animation.mp4"  type="video/mp4">
+        </video>
+    </div>
     <div class="horizontalScroll">
       <div class="horizontalScroll__content">
-            <ul id="stockList" class="list-inline">
-                
+            <ul id="stockList" class="list-inline">   
             </ul>
         </div>
     </div>
@@ -29,9 +34,13 @@
         <div id='appearListOnClick'  class="full-list"></div>
     </div>
     
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="./static/js/buttonLoading.js"></script>
     <script src="./static/js/newVer.js"></script>
     <script src="./static/js/horScroll.js"></script>
+
 </body>
 </html>

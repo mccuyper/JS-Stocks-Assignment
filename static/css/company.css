@@ -2,6 +2,9 @@
 * {
     font-family: 'Ubuntu', sans-serif;
 }
+body {
+  background-color: #adadad;
+}
 .symbol {
     text-align: center;
     font-size: 24px;
@@ -109,4 +112,8 @@
     100% {
       transform: rotate(360deg);
     }
+  }
+
+  canvas {
+    transform: scaleY(0.7);
   }
