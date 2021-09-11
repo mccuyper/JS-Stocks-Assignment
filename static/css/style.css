@@ -75,6 +75,7 @@ body{
 }
 .companyProfile {
   text-decoration: none;
+  width: 100%;
 }
 #companyLink:hover {
   background-color: #888888;

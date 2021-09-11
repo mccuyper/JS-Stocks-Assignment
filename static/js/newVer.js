@@ -30,17 +30,15 @@ function fetchData() {
                     })
                     .then(data => {
                         const companyRow = `
-                                <div  id="companyLink" class="d-flex align-items-center justify-content-between p-1" data-aos="zoom-in-up">
-                                    <a href="${data.profile.website}" class="companyProfile" target="_blank" >
-                                        <img src="${data.profile.image}" onerror="this.onerror=null; this.src='./static/img/default.jfif'" alt="" height="50" width="50">
-                                        <span class="listItem">
-                                            ${data.profile.companyName}</span></a>
-                                                  
-                                            <p class="percent">(<span id='colorChange'>${data.profile.changesPercentage}</span>%)</p> 
-                                            <a href="./company.html?query=${data.symbol}" class="btn btn-primary">${data.symbol}</a>                            
-                                </div>`
-                                
-                                // console.log(companyRow);
+                        <div  id="companyLink" class="d-flex align-items-center justify-content-between p-1" data-aos="zoom-in-up">
+                            <a href="./company.html?query=${data.symbol}" class="companyProfile" target="_blank">
+                                <img src="${data.profile.image}" onerror="this.onerror=null; this.src='./static/img/default.jfif'" alt="" height="50" width="50">
+                                    <span class="listItem">${data.profile.companyName}</span>
+                                <p class="percent">${data.symbol}
+                                    <span id='colorChange'>(${data.profile.changesPercentage}%)</span>
+                                </p>
+                            </a>
+                        </div>` 
                                 setTimeout(function(){document.querySelector('#appearListOnClick').insertAdjacentHTML("afterbegin", companyRow);
                                 const chPerc = `${data.profile.changesPercentage}`
                                 document.getElementById('colorChange').innerHTML = chPerc.slice(0,5)
@@ -48,9 +46,11 @@ function fetchData() {
                                 // color Changer condition
                                 if (chPerc > 0) {
                                     document.getElementById('colorChange').style.color = "green";
-                                    
-                                    document.querySelector('#colorChange').insertAdjacentHTML("afterbegin", '+');
+                                    document.querySelector('#colorChange').insertAdjacentHTML("afterbegin", ' (+');
+                                    document.querySelector('#colorChange').insertAdjacentHTML("beforeend", '%)');
                                 } else {
+                                    document.querySelector('#colorChange').insertAdjacentHTML("afterbegin", ' (');
+                                    document.querySelector('#colorChange').insertAdjacentHTML("beforeend", '%)');
                                     document.getElementById('colorChange').style.color = "red";
                                 }}, 1000);
                         })
